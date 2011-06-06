@@ -1,0 +1,28 @@
+<html>
+<body>
+<table>
+<tr><td>Names to draw from:</td><td><button onClick="draw()">Draw</button></td><td>Selections:</td></tr>
+<tr><td>
+<textarea rows=10 id="source">
+Amy
+Fred
+Joey
+Paul
+Sally
+</textarea>
+</td><td>&nbsp;</td><td>
+<textarea rows=10 id="dest">
+</textarea>
+</td></tr></table>
+<script>
+function draw() {
+    var sourceVal = document.getElementById("source").value;
+    var names = sourceVal.trim().split("\n");
+    var rand = Math.floor(Math.random()*(names.length));
+    var pick = names[rand];
+    document.getElementById("source").value = sourceVal.replace(pick+"\n", "").replace(pick, "");
+    document.getElementById("dest").value+=pick+"\n";
+}
+</script>
+</body>
+</html>
