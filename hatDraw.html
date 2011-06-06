@@ -1,4 +1,8 @@
 <html>
+<head>
+<!-- Needed for IE to have a trim() function. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+</head>
 <body>
 <table>
 <tr><td>Names to draw from:</td><td><button onClick="draw()">Draw</button></td><td>Selections:</td></tr>
@@ -17,7 +21,7 @@ Sally
 <script>
 function draw() {
     var sourceVal = document.getElementById("source").value;
-    var names = sourceVal.trim().split("\n");
+    var names = $.trim(sourceVal).split("\n");
     var rand = Math.floor(Math.random()*(names.length));
     var pick = names[rand];
     document.getElementById("source").value = sourceVal.replace(pick+"\n", "").replace(pick, "");
